@@ -22,6 +22,7 @@
 		8D20FCF224F5AB3F002FD5B8 /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D20FCF024F5AB3F002FD5B8 /* TweetTableViewCell.swift */; };
 		8D20FCF324F5AB3F002FD5B8 /* TweetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D20FCF124F5AB3F002FD5B8 /* TweetTableViewCell.xib */; };
 		8D20FCF524F5BA2E002FD5B8 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D20FCF424F5BA2E002FD5B8 /* AddPostViewController.swift */; };
+		8D399EA824F6D99F003CAFC8 /* MapaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D399EA724F6D99F003CAFC8 /* MapaViewController.swift */; };
 		8D67D50E24F5D00100FB13B1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D67D50D24F5D00100FB13B1 /* GoogleService-Info.plist */; };
 		8D74944124F45F53006E0026 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D74944024F45F53006E0026 /* AppDelegate.swift */; };
 		8D74944524F45F53006E0026 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D74944424F45F53006E0026 /* ViewController.swift */; };
@@ -52,6 +53,7 @@
 		8D20FCF024F5AB3F002FD5B8 /* TweetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
 		8D20FCF124F5AB3F002FD5B8 /* TweetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TweetTableViewCell.xib; sourceTree = "<group>"; };
 		8D20FCF424F5BA2E002FD5B8 /* AddPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
+		8D399EA724F6D99F003CAFC8 /* MapaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapaViewController.swift; sourceTree = "<group>"; };
 		8D67D50D24F5D00100FB13B1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8D74943D24F45F53006E0026 /* BgPlatziTweets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BgPlatziTweets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D74944024F45F53006E0026 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				8D74946324F4C82B006E0026 /* Home.storyboard */,
 				8D20FCED24F5A907002FD5B8 /* HomeViewController.swift */,
 				8D20FCF424F5BA2E002FD5B8 /* AddPostViewController.swift */,
+				8D399EA724F6D99F003CAFC8 /* MapaViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				8DBA145A24F56CC000F23CA1 /* Endpoints.swift in Sources */,
 				8D20FCEC24F5A01B002FD5B8 /* PostLocation.swift in Sources */,
 				8D20FCE924F5A01B002FD5B8 /* GeneralResponse.swift in Sources */,
+				8D399EA824F6D99F003CAFC8 /* MapaViewController.swift in Sources */,
 				8D20FCE424F5A01B002FD5B8 /* RegisterRequest.swift in Sources */,
 				8D74944124F45F53006E0026 /* AppDelegate.swift in Sources */,
 			);

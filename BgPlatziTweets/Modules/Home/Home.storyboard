@@ -39,7 +39,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Dv8-td-ea3"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Tweets" id="r3K-U4-aRK"/>
+                    <navigationItem key="navigationItem" title="Tweets" id="r3K-U4-aRK">
+                        <barButtonItem key="rightBarButtonItem" title="Ver mapa" id="dhk-9p-GI8">
+                            <connections>
+                                <segue destination="EGv-Ao-W8Z" kind="show" identifier="showMap" id="hf7-1d-veG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Llk-Ku-6dU" id="FhB-3b-Cut"/>
                     </connections>
@@ -72,7 +78,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kCm-Ty-JD3">
                                 <rect key="frame" x="20" y="117" width="374" height="237"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AN3-8x-yFj">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AN3-8x-yFj">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="120"/>
                                         <color key="backgroundColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="0.3240812059859155" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -87,6 +93,16 @@
                                         <state key="normal" title="Abrir camara"/>
                                         <connections>
                                             <action selector="openCameraAction" destination="48V-gH-4mx" eventType="touchUpInside" id="ou2-hf-hia"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6C-Sy-jaJ">
+                                        <rect key="frame" x="0.0" y="180" width="374" height="0.0"/>
+                                        <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Ver video" image="video.fill" catalog="system">
+                                            <color key="titleColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="openPreviewAction" destination="48V-gH-4mx" eventType="touchUpInside" id="Ecn-Bc-Q7r"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3P-7P-RdM">
@@ -112,9 +128,9 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bottomImage" translatesAutoresizingMaskIntoConstraints="NO" id="Nfz-kR-xoc">
-                                <rect key="frame" x="0.0" y="696" width="414" height="200"/>
+                                <rect key="frame" x="0.0" y="796" width="414" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="a5m-9x-Hl3"/>
+                                    <constraint firstAttribute="height" constant="100" id="a5m-9x-Hl3"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -138,11 +154,43 @@
                         <outlet property="openCameraButton" destination="yNf-nb-bfK" id="ALm-gV-i67"/>
                         <outlet property="postTextView" destination="AN3-8x-yFj" id="D1H-a5-B0i"/>
                         <outlet property="previewImageView" destination="0yZ-8Z-0p6" id="HlU-Zj-Ffo"/>
+                        <outlet property="videoButton" destination="h6C-Sy-jaJ" id="amZ-NA-HIv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B7B-93-ApY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1528.985507246377" y="-17.410714285714285"/>
+            <point key="canvasLocation" x="1632" y="500"/>
+        </scene>
+        <!--Maps-->
+        <scene sceneID="GU7-xW-Ub1">
+            <objects>
+                <viewController id="EGv-Ao-W8Z" customClass="MapaViewController" customModule="BgPlatziTweets" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1T7-tB-8Ku">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SMu-tm-Z1P">
+                                <rect key="frame" x="0.0" y="140" width="414" height="756"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="SMu-tm-Z1P" firstAttribute="top" secondItem="LwJ-bh-qip" secondAttribute="top" id="UUD-Ri-a9S"/>
+                            <constraint firstItem="SMu-tm-Z1P" firstAttribute="leading" secondItem="LwJ-bh-qip" secondAttribute="leading" id="oGj-Zd-bN9"/>
+                            <constraint firstItem="SMu-tm-Z1P" firstAttribute="trailing" secondItem="LwJ-bh-qip" secondAttribute="trailing" id="uB4-S8-muD"/>
+                            <constraint firstAttribute="bottom" secondItem="SMu-tm-Z1P" secondAttribute="bottom" id="yEB-yE-eZ5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="LwJ-bh-qip"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Maps" id="aSo-Xm-bYn"/>
+                    <connections>
+                        <outlet property="mapContainter" destination="SMu-tm-Z1P" id="3ii-X9-v4T"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6tp-QU-Lmx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1631.8840579710147" y="-255.13392857142856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PST-AO-12n">
@@ -165,5 +213,6 @@
     </scenes>
     <resources>
         <image name="bottomImage" width="351.5" height="123"/>
+        <image name="video.fill" catalog="system" width="128" height="82"/>
     </resources>
 </document>

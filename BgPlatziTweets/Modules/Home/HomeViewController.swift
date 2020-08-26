@@ -10,6 +10,7 @@ import UIKit
 import Simple_Networking
 import SVProgressHUD
 import NotificationBannerSwift
+import AVKit
 
 class HomeViewController: UIViewController {
     // MARK: - IBOutles
@@ -120,6 +121,16 @@ extension HomeViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         if let cell = cell as? TweetTableViewCell {
             cell.setUpCellWith(post: dataSource[indexPath.row])
+            cell.needsToShowVideo = { url in
+                // Aqui si deberiamos abrir un view controller
+            
+                let avPlayer = AVPlayer(url: url)
+                let avPlayerController = AVPlayerViewController()
+                avPlayerController.player = avPlayer
+                self.present(avPlayerController, animated: true) {
+                    avPlayerController.player?.play()
+                }
+            }
         }
         return cell
     }
@@ -127,3 +138,13 @@ extension HomeViewController: UITableViewDataSource {
     
 }
 
+extension HomeViewController {
+    // Este metodo se llamara cuando hagamos transiciones entre pantallas pero solo con storyboards
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //1. Validar que el segue sea el esperado
+        if segue.identifier == "showMap", let mapViewController = segue.destination as? MapaViewController {
+            mapViewController.posts = dataSource.filter { $0.hasLocation }
+        }
+    }
+}

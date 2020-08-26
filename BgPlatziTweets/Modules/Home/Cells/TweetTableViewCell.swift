@@ -20,8 +20,17 @@ class TweetTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        //LAS CELDAS NUNCA DEBEN INVOCAR VIEW CONTROLLERS
     }
-
+    @IBAction func openVideoAction() {
+        guard let video_url = videoUrl else {
+            return
+        }
+        needsToShowVideo?(video_url)
+    }
+    // MARK: - Properties
+    private var videoUrl: URL?
+    var needsToShowVideo: ((_ url: URL) -> Void)?
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -29,15 +38,18 @@ class TweetTableViewCell: UITableViewCell {
     }
     
     func setUpCellWith(post: Post){
+        videoButton.isHidden = !post.hasVideo
         nameLabel.text = post.author.names
         nicknameLabel.text = post.author.nickname
         messageLabel.text = post.text
         dateLabel.text = post.createdAt
         if post.hasImage {
+            tweetImageView.isHidden = false
             tweetImageView.kf.setImage(with: URL(string: post.imageUrl))
         } else {
             tweetImageView.isHidden = true
         }
+        videoUrl = URL(string: post.videoUrl)
     }
     
 }
